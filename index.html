@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<div id="popUp">
+  <h1 id="pop-text">
+    The user is not here...<br/>
+    Come back to me!
+  </h1>
+</div>
+
+  <!-- Add your site or application content here -->
+  <div class="page-container">
+      <div class="canvas-container">
+        <canvas id="face_canvas" width="800" height="400"></canvas>
+      </div>
+
+      <div id="conversation-box" onclick="speakConversationBox()">
+        <h1 id="heading-text">Hi! I am Toki!</h1>
+        <h3 id="paragraph-text">Nice to meet you! <br/> What is your name?</h3>
+      </div>
+
+    <div id="toki-initial">
+      <div>
+        <input id="textInput" type="text" placeholder="Enter your name..." onfocus="this.placeholder='';this.style.color='#000'">
+      </div>
+      <div>
+        <input class="primary-btn" type="button" value="OK" onclick="saveName()">
+      </div>
+    </div>
+
+    <div id="lang-select">
+      <button class="primary-btn" onclick="firstSetLang('zh-cn')">
+        中文
+      </button>
+      <button class="primary-btn" onclick="firstSetLang('fr-fr')">
+        French
+      </button>
+    </div>
+
+    <div id="start-to-learn">
+      <button class="primary-btn" onclick="goToChooseSection()">
+        Vocabulary
+      </button>
+      <button class="primary-btn" onclick="goToSpeaking()">
+        Speaking
+      </button>
+    </div>
+
+    <div id="choose-section">
+      <button class="primary-btn" onclick="startVocabulary(1)">
+        Section 1 - Easy
+      </button><br/>
+      <button class="primary-btn" onclick="startVocabulary(2)">
+        Section 2 - Medium
+      </button><br/>
+      <button class="primary-btn" onclick="startVocabulary(3)">
+        Section 3 - Difficult
+      </button>
+    </div>
+
+    <div id="learning-box">
+
+    </div>
+
+    <div id="video-container">
+      <button id="video-btn" onclick="initialVideo()">
+        Activate Video
+      </button>
+      <canvas id="videoCanvas">
+
+      </canvas>
+      <video id="myVideo" width="160" height="120" autoplay="true"></video>
+    </div>
+
+  </div>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/vendor/face-api.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
