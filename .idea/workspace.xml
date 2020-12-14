@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af3ffed5-3be5-4f97-bf29-78fe95b59a8f" name="Default Changelist" comment="" />
+    <list default="true" id="af3ffed5-3be5-4f97-bf29-78fe95b59a8f" name="Default Changelist" comment="First Shot">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1kvDRoBTLYL0ikqKt6wMSK46W79" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,11 +56,24 @@
       <workItem from="1606829459790" duration="2738000" />
       <workItem from="1607133108430" duration="485000" />
       <workItem from="1607394509045" duration="2126000" />
+      <workItem from="1607410316973" duration="406000" />
     </task>
+    <task id="LOCAL-00001" summary="First Shot">
+      <created>1607410475489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607410475489</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Shot" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Shot" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1259" height="401" key="GridCell.Tab.0.bottom" timestamp="1606572320660">
@@ -77,6 +96,18 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="149" y="368" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1606572959795" />
+    <state x="240" y="195" key="Vcs.Push.Dialog.v2" timestamp="1607410560062">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="240" y="195" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1607410560062" />
+    <state x="440" y="376" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607410497034">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="440" y="376" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1607410497034" />
+    <state x="462" y="355" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1607410553247">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="462" y="355" key="git4idea.remote.GitConfigureRemotesDialog/0.25.1440.875@0.25.1440.875" timestamp="1607410553247" />
     <state x="-267" y="-1091" width="670" height="676" key="search.everywhere.popup" timestamp="1606831051122">
       <screen x="-572" y="-1415" width="2560" height="1415" />
     </state>
