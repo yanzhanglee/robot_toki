@@ -14,6 +14,15 @@ let currentUser = 0;
 let trans_result;
 let spoken = false;
 
+let words_repo = [["sound","annoyed","weekend","hate","love","random","crazy","funny","hope","dream","lazy"],["argument","film","weekend","hate","love","random","crazy","funny","hope","dream","lazy"],["sound","annoyed","weekend","hate","love","random","crazy","funny","hope","dream","lazy"]];
+let trans_repo_chinese = [["声音","烦人的","周末","讨厌","爱","随机","疯狂的","有趣的","希望","梦","懒惰的"],["参数","电影","周末","讨厌","爱","随机","疯狂的","有趣的","希望","梦","懒惰的"],["声音","烦人的","周末","讨厌","爱","随机","疯狂的","有趣的","希望","梦","懒惰的"]];
+let trans_repo_pt = [["Voz","Irritante","Fim-de-semana","Nojento","Amor","Aleatório","Maníaco","Divertido","Esperança","Sonho","Preguiçoso"],["Parâmetro","Filme","Fim-de-semana","Nojento","Amor","Aleatório","Maníaco","Divertido","Esperança","Sonho","Preguiçoso"],["Voz","Irritante","Fim-de-semana","Nojento","Amor","Aleatório","Maníaco","Divertido","Esperança","Sonho","Preguiçoso"]];
+let trans_repo_french = [["du son","agacé","fin de semaine","haine","amour","Aléatoire","fou","drôle","espérer","rêver","paresseux"],["Les paramètres","agacé","fin de semaine","haine","amour","Aléatoire","fou","drôle","espérer","rêver","paresseux"],["du son","agacé","fin de semaine","haine","amour","Aléatoire","fou","drôle","espérer","rêver","paresseux"]];
+let round = 0;
+let scores = 0;
+
+let results;
+
 //CLass
 function User(){
   this.initialUser = function (name){
@@ -89,11 +98,11 @@ function firstSetLang(language){
     pText.innerText = "Chinese is a challenging language, hope you enjoy it!"
     speak(welcome,'zh-cn');
   }
-  if (language==='fr-fr'){
-    let welcome = "Le français est une langue magnifique. bonne chance!"
+  if (language==='pt-pt'){
+    let welcome = "O português é UMA língua Muito elegante, desejo-lhe um estudo feliz!"
     headText.innerText = welcome;
-    pText.innerText = "French is a romantic language, hope you enjoy it!"
-    speak(welcome,'fr-fr');
+    pText.innerText = "Portuguese is a romantic language, hope you enjoy it!"
+    speak(welcome,'pt-pt');
   }
   document.getElementById("lang-select").setAttribute("style","display:none;");
   document.getElementById("start-to-learn").setAttribute("style","display:inline-block");
@@ -112,11 +121,6 @@ function hideInput(){
   langSelect.setAttribute("style","display:inline-block;")
 }
 
-let words_repo = [["sound","annoyed","weekend","hate","love","random","crazy","funny","hope","dream"],["test","try"],["test","try"]];
-let trans_repo_chinese = [["声音","烦人的","周末","讨厌","爱","随机","疯狂的","有趣的","希望","梦"],["测试","尝试"],["测试","尝试"]];
-let trans_repo_french = [["du son","agacé","fin de semaine","haine","amour","Aléatoire","fou","drôle","espérer","rêver"],["tester","essayer"],["tester","essayer"]];
-let round = 0;
-let scores = 0;
 function startVocabulary(level){
   //Data
   document.getElementById("choose-section").setAttribute("style","display:none;");
@@ -133,6 +137,8 @@ function startVocabulary(level){
     trans_repo = trans_repo_french;
   else if(user1.lang === 'zh-cn')
     trans_repo = trans_repo_chinese;
+  else if(user1.lang === 'pt-pt')
+    trans_repo = trans_repo_pt;
 
   if(level===1){
     words = words_repo[0];
@@ -227,13 +233,13 @@ function startVocabulary(level){
 function rightAnswer(){
   mouth_type = 1;
   drawToki();
-  alert("Answer correct!");
+  speak("Answer correct!",'en-US');
   scores++;
 }
 function wrongAnswer(){
   mouth_type = 3;
   drawToki();
-  alert("Wrong answer!");
+  speak("Wrong Answer!",'en-US');
 }
 function endSection(score){
   mouth_type = 2;
@@ -245,9 +251,9 @@ function backToChooseSection(){
   if(user1.lang === 'zh-cn'){
     headText.innerText = "中文是一门很有挑战的语言，继续学习吧！"
     pText.innerText = "Chinese is a challenging language, keep on it!"
-  }else if(user1.lang === 'fr-fr'){
-    headText.innerText = "Le français est une langue romantique, continuez!"
-    pText.innerText = "French is a romantic language, keep on it!"
+  }else if(user1.lang === 'pt-pt'){
+    headText.innerText = "O português é UMA língua Muito elegante, desejo-lhe um estudo feliz!"
+    pText.innerText = "Portuguese is a romantic language, keep on it!"
   }
   document.getElementById("learning-box").setAttribute("style","display:none;");
   document.getElementById("start-to-learn").setAttribute("style","display:inline-block;");
@@ -352,10 +358,12 @@ function translate(sen){
   pText.innerText = sen;
   // Translate
   let targetLang;
-  if(user1.lang === 'fr-fr')
-    targetLang = 'fr';
+  if(user1.lang === 'pt-pt')
+    targetLang = 'pt';
   else if(user1.lang === 'zh-cn')
     targetLang = 'zh';
+  else if(user1.lang === 'fr-fr')
+    targetLang = 'fr';
   let params = {
     "q": sen,
     "source":"en",
@@ -485,9 +493,9 @@ function speak(text, lang) {
       msg.voice = voices.filter(function(voice) { return voice.lang === lang; })[1];
     }
     msg.voiceURI = 'native';
-    msg.volume = 0.9; // 0 to 1
-    msg.rate = 0.9; // 0.1 to 10
-    msg.pitch = 1.8; //0 to 2
+    msg.volume = 1; // 0 to 1
+    msg.rate = 1.0; // 0.1 to 10
+    msg.pitch = 2; //0 to 2
     msg.text = text;
     msg.lang = lang;
     msg.onend = function(e) {
@@ -516,7 +524,7 @@ function initialVideo(){
   }
   document.getElementById("video-container").setAttribute("style","display:none;")
 }
-
+let faceMatcher;
 async function loadFaceapi(){
   console.log("Loading faceapi")
   await faceapi.nets.tinyFaceDetector.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
@@ -527,6 +535,20 @@ async function loadFaceapi(){
   await faceapi.nets.tinyFaceDetector.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
   await faceapi.nets.mtcnn.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
   console.log("Faceapi Loaded");
+
+  const img = new Image();
+  img.setAttribute("crossOrigin", "anonymous");
+  img.src = 'https://img.oh-eureka.com/pics/2020-12-16-test.jpg';
+  results = await faceapi
+    .detectAllFaces(img)
+    .withFaceLandmarks()
+    .withFaceDescriptors();
+  if (!results.length) {
+    console.log("face not in");
+    return;
+  }
+  faceMatcher = new faceapi.FaceMatcher(results);
+  console.log("face in");
 }
 
 function handleUserVideoSuccess(stream){
@@ -547,11 +569,28 @@ function captureImageFromVideo(){
 
 async function detect(){
   const detections = await faceapi.detectAllFaces(video);
-  console.log(detections.length);
+  console.log(detections);
+
   if(detections.length === 0){
+    document.getElementById("pop-text").innerText = 'The user is not here..\n Come back to me!';
     document.getElementById("popUp").setAttribute("style","display:flex;");
   }
   if(detections.length){
-    document.getElementById("popUp").setAttribute("style","display:none;");
+    const singleResult = await faceapi
+      .detectSingleFace(video)
+      .withFaceLandmarks()
+      .withFaceDescriptor();
+    if (singleResult) {
+      const bestMatch = faceMatcher.findBestMatch(singleResult.descriptor);
+      console.log(bestMatch);
+      if(bestMatch.label==='person 1'){
+        document.getElementById("popUp").setAttribute("style","display:none;");
+      }
+      else {
+        document.getElementById("pop-text").innerText = 'You are not ' + user1.name +'!';
+        document.getElementById("popUp").setAttribute("style","display:flex;");
+      }
+    }
   }
 }
+
